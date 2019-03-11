@@ -1,0 +1,103 @@
+.story{
+    @include respond(phone) {
+        h3 {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: $color-white;
+    border-radius: 30px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+    @include respond (tab-port) {
+        width: 100%;
+    }
+    @include respond (phone) {
+        transform: none;
+    }
+    &__shape{
+        width: 15rem;
+        height: 15rem;
+        // background-color: orangered;
+        -webkit-clip-path: circle();
+        clip-path: circle();
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        transform: skewX(12deg) translateX(-3rem);
+        float: left;
+        padding-right: 3rem;
+        @include respond (phone) {
+            transform: none;
+            width: 100%;
+            // background-color: orangered;
+            -webkit-clip-path: circle();
+            clip-path: circle();
+            -webkit-shape-outside: circle(50% at 50% 50%);
+
+            float: left;
+            padding-right: 3rem;
+        }
+    }
+    &-img{
+        background-size: cover;
+        height: 100%;
+        transform: scale(1.4);
+        transition: all .2s;
+        @include respond (tab-port) {
+            transform: translateX(-18%) scale(1.4);
+            display: inline-block; 
+        }
+        @include respond (phone) {
+            transform: translateX(27%);
+            display: inline-block; 
+        }
+        @media (max-width: 20rem) {
+            transform: translateX(2%);
+            
+        }
+    }
+    &-text{
+        transform: skewX(12deg);
+        @include respond (phone) {
+            transform: none;
+        } 
+    }
+
+    &__caption{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%); 
+        font: bold;
+        text-transform: uppercase;
+        color: $color-white;
+        font-size: 1.6rem;
+        text-align: center;
+        opacity: 0;
+        transition: all 1s;
+        backface-visibility: hidden;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        @include respond(phone) {
+            transform: translateX(27%)
+        }
+    }
+
+    &:hover &-img{
+        transform: translateX(-15%) scale(1);
+        filter: blur(3px) brightness(90%);
+        @include respond(phone) {
+            transform: translateX(27%)
+        }
+
+    }
+}

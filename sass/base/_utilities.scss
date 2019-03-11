@@ -1,0 +1,31 @@
+.u-center-text{
+    text-align: center
+}
+.u-margin-bottom-big {
+    margin-bottom: 8rem;
+}
+.u-margin-bottom-med {
+    margin-bottom: 5rem;
+}
+.u-margin-bottom-small {
+    margin-bottom: 2rem;
+}
+
+.u-float-content {
+    top: 0;
+    left: 0;
+    transform: translate(50%,50%);
+}
+
+.u-margin-top {
+    margin-top: 8rem;
+}
+
+.phone-disable {
+    @include respond(phone) {
+        &:active {
+            
+        }
+    }
+    
+}
